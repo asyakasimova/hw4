@@ -63,7 +63,6 @@ public class FormTestsWithFaker {
 
         $("#subjectsInput").setValue(subject).pressEnter();
         $("#hobbiesWrapper").find(byText(hobby)).click();
-        //$("#uploadPicture").uploadFile(new File( "./src/test/resources/" + picture));
         $("#uploadPicture").uploadFromClasspath(picture);
         $("#currentAddress").setValue(address);
 
@@ -74,16 +73,6 @@ public class FormTestsWithFaker {
         $("#submit").click();
 
         //asserts
-        /*$(".modal-content").shouldHave(text("Thanks for submitting the form"),
-                text(firstName + " " + lastName),
-                text(email),
-                text(gender),
-                text(phone),
-                text(date + " " + month + "," + year),
-                text(subject),
-                text(hobby),
-                text(address),
-                text(state + " " + city)); */
         $x("//td[text()='Student Name']").parent().shouldHave(text(firstName + " " + lastName));
         $x("//td[text()='Student Email']").parent().shouldHave(text(email));
         $x("//td[text()='Gender']").parent().shouldHave(text(gender));
